@@ -18,3 +18,5 @@ let rec app : type a b c. (a, b, c) plus -> a vect -> b vect -> c vect =
   | O_N_N -> v
   | S_O_S prf' -> ( match u with Cons (n, u') -> Cons (n, app prf' u' v))
 ```
+
+下次试试写证明？
