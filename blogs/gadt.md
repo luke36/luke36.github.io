@@ -1,6 +1,6 @@
 # 拙劣的模仿
 
-```OCaml
+```ocaml
 type o = OT
 type 'a s = ST
 
