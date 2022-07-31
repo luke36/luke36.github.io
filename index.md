@@ -2,3 +2,4 @@
 
 - [拙劣的模仿](blogs/gadt.md)
 - [如果有人知道如何避免，请告诉我](blogs/refutedisaster.md)
+- [Tagless Final](blogs/tagless_final.md)
