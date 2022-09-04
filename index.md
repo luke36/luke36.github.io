@@ -4,3 +4,4 @@
 - [如果有人知道如何避免，请告诉我](blogs/refutedisaster.md)
 - [Tagless Final](blogs/tagless_final.md)
 - [为什么算法的常数因子也很重要](blogs/constant.md)
+- [全函数和图灵完备](blogs/total.md)
