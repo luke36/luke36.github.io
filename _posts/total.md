@@ -1,4 +1,7 @@
-# 全函数和图灵完备
+---
+layout: post
+title: "全函数和图灵完备"
+---
 
 如果看过 The Little Typer, 应该都会对那段 "Why not?" "Because recursion is not an option." * n 的对话印象深刻. 不用 general recursion, 而是用类似 primitive recursion (称作 structural recursion) 的函数来代替, 保证计算一定终止, 第一次见肯定会感到新奇. 事实上, 许多类型系统包含 Dependent Type 的程序语言也有类似的特性 (因为 type 依赖于 value, 那么为了进行类型检查, 就得一边算, 要是算不出就没法查了), 只不过除了用 primitive recursion 来写递归函数外, 也可以正常写, 只要它强大的 totality checker 能检测出这个函数一定终止.
 

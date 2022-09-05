@@ -1,4 +1,7 @@
-# 如果有人知道如何避免，请告诉我
+---
+layout: post
+title: "如果有人知道如何避免，请告诉我"
+---
 
 ```ocaml
 type _ op =
@@ -46,13 +49,7 @@ let type_of : type a. a expr -> a ty =
   | Un (Add, e) -> refute e
   | Un (Mul, e) -> refute e
   | Un (Div, e) -> refute e
-  | Un (Rem, e) -> refute e
-  | Un (BitAnd, e) -> refute e
-  | Un (BitOr, e) -> refute e
-  | Un (BitXor, e) -> refute e
   (* ... *)
-  | Un (Or, e) -> refute e
-  | Un (Lt, e) -> refute e
   | Un (Le, e) -> refute e
   | Un (Ge, e) -> refute e
   | Un (Gt, e) -> refute e
