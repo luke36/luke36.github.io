@@ -56,3 +56,5 @@ let type_of : type a. a expr -> a ty =
   | Un (Eq, e) -> refute e
   | Un (Neq, e) -> refute e (* !!!disaster *)
 ```
+
+感觉就好比 auto 的层数不够多.
