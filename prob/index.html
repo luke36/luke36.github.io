@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>Problems</title>
+    <meta content="TeXmacs 2.1.2" name="generator"></meta>
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } dt { float:
+      left; min-width: 1.75em; text-align: right; padding-right: 0.75em;
+      font-weight: bold; } dd { margin-left: 2.75em; padding-bottom: 0.25em; }
+      dd p { padding-top: 0em; } .subsup { display: inline; vertical-align:
+      -0.2em } .subsup td { padding: 0px; text-align: left} .fraction {
+      display: inline; vertical-align: -0.8em } .fraction td { padding: 0px;
+      text-align: center } .wide { position: relative; margin-left: -0.4em }
+      .accent { position: relative; margin-left: -0.4em; top: -0.1em }
+      .title-block { width: 100%; text-align: center } .title-block p {
+      margin: 0px } .compact-block p { margin-top: 0px; margin-bottom: 0px }
+      .left-tab { text-align: left } .center-tab { text-align: center }
+      .balloon-anchor { border-bottom: 1px dotted #000000; outline: none;
+      cursor: help; position: relative; } .balloon-anchor [hidden] {
+      margin-left: -999em; position: absolute; display: none; }
+      .balloon-anchor: hover [hidden] { position: absolute; left: 1em; top:
+      2em; z-index: 99; margin-left: 0; width: 500px; display: inline-block; }
+      .balloon-body { } .ornament { border-width: 1px; border-style: solid;
+      border-color: black; display: inline-block; padding: 0.2em; } .right-tab
+      { float: right; position: relative; top: -1em; } .no-breaks {
+      white-space: nowrap; } math { font-family: cmr, times, verdana } 
+    </style>
+  </head>
+  <body>
+    <table class="title-block" style="margin-bottom: 2em">
+      <tr>
+        <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
+          <tr>
+            <td><font style="font-size: 168.2%"><strong>Problems</strong></font></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+    <p>
+      Here are some interesting problems I collected during 2023 summer, for
+      the mini-semester that time.
+    </p>
+    <h2 id="auto-1">A probability problem<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        I have two real numbers <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub></math>
+        and <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>2</mn></msub></math>. You choose
+        one of them <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mi>i</mi></msub></math> to
+        know. Then, you guess <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>⩾</mo><msub><mi>x</mi><mrow><mn>3</mn><mo>-</mo><mi>i</mi></mrow></msub></mrow></math>
+        or the other way around. Is there a strategy to win strictly more
+        often than 50%? If so, state and prove it; if not, prove it.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <hr></hr>
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Yes. There are at least two methods:
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <ul>
+        <li>
+          <p>
+            Choose a number <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>s</mi><mo>∈</mo><mi>ℝ</mi></mrow></math>
+            at random as the standard (e.g. by normal distribution). If <math
+            xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>⩾</mo><mi>s</mi></mrow></math>,
+            answer &ldquo;larger&rdquo;; otherwise, answer
+            &ldquo;smaller&rdquo;.
+          </p>
+        </li>
+        <li>
+          <p>
+            Assign every real number <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math> a
+            probability <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo
+            form="postfix">)</mo></mrow></mrow></math>, where <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>
+            is strictly increasing (e.g. let <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mrow><mo
+            form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>≜</mo><mfrac><msup><mi>e</mi><mrow><mo>-</mo><mi>x</mi></mrow></msup><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>-</mo><mi>x</mi></mrow></msup></mrow></mfrac></mrow></math>).
+            Answer &ldquo;larger&rdquo; with probability <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>p</mi><mrow><mo
+            form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo form="postfix">)</mo></mrow></mrow></math>.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <h2 id="auto-2">Auto differentiation in C++<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Complete the following code skeleton, so that <tt class="verbatim">f&lt;float&gt;</tt>
+        works as a regular function, and <tt class="verbatim">f&lt;Diff&gt;</tt> enables
+        differentiation:
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px; margin-top: 1em; margin-bottom: 1em">
+      <div class="compact-block" style="margin-left: 35.145870328812px; text-indent: 0em">
+        <pre class="verbatim" xml:space="preserve">
+template &lt;typename T&gt;
+T f(vector&lt;T&gt; args) {
+  T x = args[0];
+  T y = args[1];
+  T z = exp(x) + log(y);
+  return z;
+}
+
+class Diff {
+  // &hellip;
+};
+
+Diff exp(Diff x) {
+  // &hellip;
+}
+
+Diff log(Diff x) {
+  // &hellip;
+}
+
+vector&lt;float&gt; gradient(Diff (*f)(vector&lt;Diff&gt;), vector&lt;float&gt; args) {
+  // &hellip;
+}
+
+int main() {
+  float x = 1.0;
+  float y = 1.0;
+  vector&lt;float&gt; args = { x, y };
+  vector&lt;float&gt; grad = gradient(f&lt;Diff&gt;, args);
+}</pre>
+      </div>
+    </div>
+    <h4 id="auto-3">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <a href="file/6.cpp">6.cpp</a> [2K]<br />A reference back-propagation
+        implementation
+      </p>
+    </div>
+    <h2 id="auto-4">A subtle problem<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Is there a C++ pure function <tt class="verbatim">int f(int)</tt>, such that <tt
+        class="verbatim">f(f(x)) == x</tt> holds for any <tt class="verbatim">int x</tt>? Prove
+        it.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <hr></hr>
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        This problem is taken from <a href="http://informatimago.free.fr/i/articles/ffn=-n/index.html">Pascal Bourguignon's Software</a>.
+        If there are bignums as in Scheme or Haskell, we could just take
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <center>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mtable columnalign="right center left">
+          <mtr>
+            <mtd><mrow><mi>f</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow></mrow></mtd>
+            <mtd><mo>=</mo></mtd>
+            <mtd><mrow><mstyle scriptlevel="1"><mrow><mo form="prefix">{</mo><mtable
+            columnalign="left left">
+              <mtr>
+                <mtd><mrow><mn>0</mn><mo>,</mo></mrow></mtd>
+                <mtd><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow></mtd>
+              </mtr>
+              <mtr>
+                <mtd><mrow><mi>x</mi><mo>+</mo><mn>1</mn><mo>,</mo></mrow></mtd>
+                <mtd><mrow><mi>x</mi><mo>></mo><mn>0</mn><mo>∧</mo><mi>x</mi><mo>≡</mo><mn>1</mn><mo>&ApplyFunction;</mo><mrow><mo
+                form="prefix">(</mo><mo>mod</mo><mo>&ApplyFunction;</mo><mn>2</mn><mo
+                form="postfix">)</mo></mrow></mrow></mtd>
+              </mtr>
+              <mtr>
+                <mtd><mrow><mo>-</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>,</mo></mrow></mtd>
+                <mtd><mrow><mi>x</mi><mo>></mo><mn>0</mn><mo>∧</mo><mi>x</mi><mo>≡</mo><mn>0</mn><mo>&ApplyFunction;</mo><mrow><mo
+                form="prefix">(</mo><mo>mod</mo><mo>&ApplyFunction;</mo><mn>2</mn><mo
+                form="postfix">)</mo></mrow></mrow></mtd>
+              </mtr>
+              <mtr>
+                <mtd><mrow><mi>x</mi><mo>-</mo><mn>1</mn><mo>,</mo></mrow></mtd>
+                <mtd><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>∧</mo><mi>x</mi><mo>≡</mo><mn>1</mn><mo>&ApplyFunction;</mo><mrow><mo
+                form="prefix">(</mo><mo>mod</mo><mo>&ApplyFunction;</mo><mn>2</mn><mo
+                form="postfix">)</mo></mrow></mrow></mtd>
+              </mtr>
+              <mtr>
+                <mtd><mrow><mo>-</mo><mi>x</mi><mo>-</mo><mn>1</mn><mo>,</mo></mrow></mtd>
+                <mtd><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn><mo>∧</mo><mi>x</mi><mo>≡</mo><mn>0</mn><mo>&ApplyFunction;</mo><mrow><mo
+                form="prefix">(</mo><mo>mod</mo><mo>&ApplyFunction;</mo><mn>2</mn><mo
+                form="postfix">)</mo></mrow></mrow></mtd>
+              </mtr>
+            </mtable><mo form="postfix">.</mo></mrow></mstyle><mi>.</mi></mrow></mtd>
+          </mtr>
+        </mtable></mstyle></math>
+      </center>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Every four number forms a cycle, except 0. The first subtlety is that
+        we are not dealing with <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ℤ</mi></math>, but a finite
+        subset of it. Another subtlety lies in the encoding of <tt class="verbatim">int</tt>.
+        According to the standard, the encoding scheme is not specified. So
+        the perfect answer is &ldquo;don't know&rdquo;. A good answer is
+        &ldquo;no&rdquo;, because 2's complement is the <em>de facto</em>
+        standard.
+      </p>
+    </div>
+    <h2 id="auto-5">A <class style="font-variant: small-caps">np</class>-complete problem<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Given a set of segments of integer lengths, you should put them on the
+        positive axis without overlapping. Each segment must have the
+        coordinate of its left endpoint to be divisible by a given number
+        (which might be different for each segment). Can you find the smallest
+        length to hold all the segments in polynomial time (assuming <class
+        style="font-variant: small-caps">p</class><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≠</mo></math><class style="font-variant: small-caps">np</class>)?
+        If so, give an algorithm; if not, prove it and give a heuristic
+        algorithm anyway.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <hr></hr>
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        This problem is inspired by alignment in memory layout. We can reduce
+        the <a href="https://algorithm-wiki.csail.mit.edu/wiki/Subset_Sum">subset-sum</a> problem to it.
+      </p>
+    </div>
+    <h2 id="auto-6">A weak language<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        We define a variant of <a href="https://en.wikipedia.org/wiki/Brainfuck">Brainfuck</a> called Brainfuck&ndash;.
+        Now we loop the same number of times <em>as the value in the current
+        memory cell</em> the moment we encounter <tt class="verbatim">[</tt>.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <ol>
+        <li>
+          <p>
+            Write a Brainfuck&ndash; program which ends with <math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mo>&Sum;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup></math>
+            in the first memory cell if that cell was initialized with <math
+            xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Is Brainfuck&ndash; Turing-complete?
+          </p>
+        </li>
+        <li>
+          <p>
+            Can you write a Brainfuck&ndash; interpreter in Brainfuck&ndash;?
+            If so, briefly explain your thought; if not, prove it.
+          </p>
+        </li>
+      </ol>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <hr></hr>
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <ol>
+        <li>
+          <p>
+            <tt class="verbatim">[&gt;+&lt;]&gt;[-[&lt;+&gt;]]</tt>
+          </p>
+          <p>
+            It shows that Brainfuck&ndash; can express some nontrivial
+            programs. I think some students are mislead.
+          </p>
+        </li>
+        <li>
+          <p>
+            No. All programs terminate.
+          </p>
+        </li>
+        <li>
+          <p>
+            No. We can't write a meta-interpreter in any (sufficiently
+            expressive) total language. Suppose we have an interpreter <math
+            xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math>, then <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mo>∀</mo><mi>q</mi><mo>,</mo><mi>x</mi><mo>,</mo><mrow><mo
+            form="prefix">&LeftDoubleBracket;</mo><mi>p</mi><mo form="postfix">&RightDoubleBracket;</mo></mrow><mrow><mo
+            form="prefix">(</mo><mi>q</mi><mo>,</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mrow><mo
+            form="prefix">&LeftDoubleBracket;</mo><mi>q</mi><mo form="postfix">&RightDoubleBracket;</mo></mrow><mrow><mo
+            form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow></mrow></math>. Let
+            <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mrow><mo form="prefix">&LeftDoubleBracket;</mo><mi>e</mi><mo
+            form="postfix">&RightDoubleBracket;</mo></mrow><mrow><mo form="prefix">(</mo><mi>x</mi><mo
+            form="postfix">)</mo></mrow><mo>≜</mo><mrow><mo form="prefix">&LeftDoubleBracket;</mo><mi>p</mi><mo
+            form="postfix">&RightDoubleBracket;</mo></mrow><mrow><mo form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mo
+            form="postfix">)</mo></mrow><mo>+</mo><mn>1</mn></mrow></math>, then
+          </p>
+          <center>
+            <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mtable columnalign="right center left">
+              <mtr>
+                <mtd><mrow><mrow><mo form="prefix">&LeftDoubleBracket;</mo><mi>p</mi><mo
+                form="postfix">&RightDoubleBracket;</mo></mrow><mrow><mo form="prefix">(</mo><mi>e</mi><mo>,</mo><mi>e</mi><mo
+                form="postfix">)</mo></mrow></mrow></mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd><mrow><mrow><mo form="prefix">&LeftDoubleBracket;</mo><mi>e</mi><mo
+                form="postfix">&RightDoubleBracket;</mo></mrow><mrow><mo form="prefix">(</mo><mi>e</mi><mo
+                form="postfix">)</mo></mrow></mrow></mtd>
+              </mtr>
+              <mtr>
+                <mtd><mrow></mrow></mtd>
+                <mtd><mo>=</mo></mtd>
+                <mtd><mrow><mrow><mo form="prefix">&LeftDoubleBracket;</mo><mi>p</mi><mo
+                form="postfix">&RightDoubleBracket;</mo></mrow><mrow><mo form="prefix">(</mo><mi>e</mi><mo>,</mo><mi>e</mi><mo
+                form="postfix">)</mo></mrow><mo>+</mo><mn>1</mn><mi>.</mi></mrow></mtd>
+              </mtr>
+            </mtable></mstyle></math>
+          </center>
+          <p>
+            A contradiction.
+          </p>
+        </li>
+      </ol>
+    </div>
+    <h4 id="auto-7">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <a href="file/4.scm">4.scm</a> [1K]<br />A reference interpreter of
+        Brainfuck&ndash;
+      </p>
+    </div>
+    <p>
+      
+    </p>
+  </body>
+</html>

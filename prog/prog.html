@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>Programs</title>
+    <meta content="TeXmacs 2.1.2" name="generator"></meta>
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } dt { float:
+      left; min-width: 1.75em; text-align: right; padding-right: 0.75em;
+      font-weight: bold; } dd { margin-left: 2.75em; padding-bottom: 0.25em; }
+      dd p { padding-top: 0em; } .subsup { display: inline; vertical-align:
+      -0.2em } .subsup td { padding: 0px; text-align: left} .fraction {
+      display: inline; vertical-align: -0.8em } .fraction td { padding: 0px;
+      text-align: center } .wide { position: relative; margin-left: -0.4em }
+      .accent { position: relative; margin-left: -0.4em; top: -0.1em }
+      .title-block { width: 100%; text-align: center } .title-block p {
+      margin: 0px } .compact-block p { margin-top: 0px; margin-bottom: 0px }
+      .left-tab { text-align: left } .center-tab { text-align: center }
+      .balloon-anchor { border-bottom: 1px dotted #000000; outline: none;
+      cursor: help; position: relative; } .balloon-anchor [hidden] {
+      margin-left: -999em; position: absolute; display: none; }
+      .balloon-anchor: hover [hidden] { position: absolute; left: 1em; top:
+      2em; z-index: 99; margin-left: 0; width: 500px; display: inline-block; }
+      .balloon-body { } .ornament { border-width: 1px; border-style: solid;
+      border-color: black; display: inline-block; padding: 0.2em; } .right-tab
+      { float: right; position: relative; top: -1em; } .no-breaks {
+      white-space: nowrap; } math { font-family: cmr, times, verdana } 
+    </style>
+    <link href="../style.css" type="text/css" rel="stylesheet"></link>
+  </head>
+  <body>
+    <table class="title-block" style="margin-bottom: 2em">
+      <tr>
+        <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
+          <tr>
+            <td><font style="font-size: 168.2%"><strong>Programs</strong></font></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+    <h2 id="auto-1">VST-IDE<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        The extensible, semi-automated C verification toolchain. A C program
+        annotated with separation-logic assertions is symbolically executed.
+        When there are problems cannot be solved by built-in
+        execution&mdash;say reading and writing memory or computing
+        frames&mdash;it fires a contextual rewriting (specified by the
+        developer using a pattern-based DSL) to solve separation-logic
+        entailments. Finally, it exports remaining (not solved by rewriting
+        and SMT solver) verification conditions to Coq. The toolchain has been
+        used in real-world operating system verification and eBPF verification
+        (NSDI submission).
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        I am one of the core contributors of VST-IDE. I coded the C frontend,
+        the assertion-language elaborator, the type system of the assertion
+        language, and a compiler targeting eBPF bytecode. The compiler also
+        compiles C annotations to eBPF ones.
+      </p>
+    </div>
+    <h4 id="auto-2">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Agda formalization of the term language in
+        assertions. It's just a random try.
+      </p>
+    </div>
+    <h2 id="auto-3">Scope<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        This is the outcome of my independent research in Peking University.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <a href="https://doi.org/10.1145/3110288">Justin Pombrio, Shriram Krishnamurthi, Mitchell Wand</a> (1)
+        used preorders to model scopes, (2) designed a binding language to
+        specify scoping rules base on this idea, and (3) showed how to infer
+        scoping rules of new constructs introduced by syntactic sugars.
+        However, their claim on the uniqueness of derivations is
+        <em>wrong</em>. As consequences, their inference algorithm is unsound.
+        We can restrict their binding language to recover uniqueness, but then
+        it is not strong enough to guarantee transitivity require in
+        preorders. Also, some scoping rules cannot be expressed even the
+        original language.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        We argue that sticking to preorders prohibit some interesting scopes.
+        Further, we propose a simple but powerful generalization to their
+        binding language, effectively using <em>multiple</em> ports instead of
+        one. It enables some scoping previous not expressible, including <tt
+        class="verbatim">match</tt> and <tt class="verbatim">do</tt>. As suggested in the paper,
+        it also includes support for list patterns; but it is only useful in
+        our generalized setting. We also extend the inference algorithm (now
+        sound) accordingly and prove a complexity result.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        We observe that a scope is expressible in our binding language
+        precisely when it is a regular language in some sense. It is in
+        contrast to the original one, where one can create nonlocal behaviour
+        and break hygiene. It also mitigates the additional complexity of our
+        language extension. Some sanity checks and optimizations to scope
+        checking are clearer through the lens of formal language theory.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        We implemented the system described in the report. We also implement
+        the original version in <a href="https://github.com/vbcpascal/Osazone-oopsla24">Osazone</a> with integration of
+        Emacs: users can actually <tt class="verbatim">find-definition-at-point</tt> in
+        Emacs if she crafted a Tree-sitter parser.
+      </p>
+    </div>
+    <h4 id="auto-4">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Source code and a few examples
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Osazone scope-checking branch
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Full report
+      </p>
+    </div>
+    <h2 id="auto-5">CS1959-compiler<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Native compiler of a subset of Scheme. Based on course P523 in Indiana
+        University, but with more optimizations:
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <ul>
+        <li>
+          <p>
+            Constant propagation, constant folding, and dead code elimination;
+          </p>
+        </li>
+        <li>
+          <p>
+            Better register allocation through <a href="https://doi.org/10.1145/229542.229546">iterated register
+            coalescing</a>;
+          </p>
+        </li>
+        <li>
+          <p>
+            Merge adjacent allocations;
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="https://doi.org/10.1145/2661103.266110">Closure optimizations</a>;
+          </p>
+        </li>
+        <li>
+          <p>
+            Handle (nested) <tt class="verbatim">letrec</tt> <a href="https://doi.org/10.1007/s10990-005-4878-3">more
+            reasonably</a>;
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        and more features:
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <ul>
+        <li>
+          <p>
+            Division, characters, and symbols;
+          </p>
+        </li>
+        <li>
+          <p>
+            Undelimited continuations by capturing the whole stack;
+          </p>
+        </li>
+        <li>
+          <p>
+            Stop-the-world copying garbage collection;
+          </p>
+        </li>
+        <li>
+          <p>
+            Encode large literals to binary and decode them at run-time;
+          </p>
+        </li>
+        <li>
+          <p>
+            A JIT variant which emits bytecode, which is then interpreted
+            and/or dynamically compiled.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        I know this project from Yin Wang and ended up beating <a href="https://github.com/yinwang0/yscheme">him</a>
+        (at least in generated code size; definitely not in programming
+        elegancy). On some test cases (e.g. the 3-story tower of
+        interpreters), performance is a little better than unsafe <a href="https://github.com/cisco/chezscheme">Chez</a>
+        (not so fair because it has much more considerations).
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        As a TA, I adopted this project to replace the old compiler project.
+        Three of my classmates and I took the old one. It was not a good
+        experience: there were almost no guidance and the source language was
+        simple.
+      </p>
+    </div>
+    <h4 id="auto-6">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Scheme source code and tests<br
+        /><em>Notice:</em> I found the compiler framework on <a href="https://github.com/Booob/P523">Github</a>,
+        but it does not seem to be in public domain. Contact me and I shall
+        delete the code should there be any copyright issues.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />&ldquo;Reverse engineered&rdquo; missing
+        document
+      </p>
+    </div>
+    <h2 id="auto-7">LTL<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Model checking labeled transition systems with linear temporal logic
+        formulae. It transforms LTL formulae to B&uuml;chi automata <a href="https://doi.org/10.1007/3-540-44585-4_6">efficiently</a>.
+        Unsatisfied properties are reported with counterexamples, say
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px; margin-top: 1em; margin-bottom: 1em">
+      <div class="compact-block" style="margin-left: 35.145870328812px; text-indent: 0em">
+        <pre class="verbatim" xml:space="preserve">
+Unsatisfied. Counterexample:
+        0(n1,n2,y1) --&gt; 1(w1,n2,y1) --&gt; 4(w1,w2,y1) --&gt; [ 7(w1,c2,y0) --&gt; 1(w1,n2,y1) --&gt; 4(w1,w2,y1) --&gt; &hellip; ]</pre>
+      </div>
+    </div>
+    <h4 id="auto-8">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />C++ source code and a few examples
+      </p>
+    </div>
+    <h2 id="auto-9">SIMP<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <a href="https://doi.org/10.1145/258734.258849">QEM</a> mesh simplification. Uses KT tree to search vertices
+        within a given radius. Simplifies a 9.1M model to 10% vertices in 1.2
+        seconds. It has comparable <em>square root distance</em> error to <a
+        href="https://mgarland.org/software/qslim20.html">QSlim 2.0</a>, according to <a href="http://dx.doi.org/10.1111/1467-8659.00236">Metro</a>.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <table style="display: inline-table; vertical-align: middle">
+          <tbody><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid; border-bottom: 0px solid; border-top: 0px solid">Model</td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid; border-top: 0px solid"><class style="font-variant: small-caps">QSlim</class> 10%</td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid">Mine 10%</td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid; border-top: 0px solid"><class style="font-variant: small-caps">QSlim</class> 20%</td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid; border-top: 0px solid">Mine 20%</td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid; border-top: 0px solid"><class style="font-variant: small-caps">QSlim</class> 50%</td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid; border-top: 0px solid">Mine 50%</td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid; border-top: 0px solid"><tt class="verbatim">another_cow</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>.</mi><mn>1</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>.</mi><mn>9</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>3</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>3</mn></mrow></msup></mrow></math></td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid"><tt class="verbatim">Armadillo</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7</mn><mi>.</mi><mn>2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7</mn><mi>.</mi><mn>5</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>.</mi><mn>6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>.</mi><mn>8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid"><tt class="verbatim">bunny</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>3</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>3</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7</mn><mi>.</mi><mn>6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>.</mi><mn>1</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>.</mi><mn>8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid"><tt class="verbatim">cow</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7</mn><mi>.</mi><mn>1</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>9</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>.</mi><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>.</mi><mn>0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>7</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid"><tt class="verbatim">gargoyle</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>1</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>4</mn><mo>×</mo><msup><mn>10</mn><mn>1</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>.</mi><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>1</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>1</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>4</mn><mo>×</mo><msup><mn>10</mn><mn>0</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>9</mn><mo>×</mo><msup><mn>10</mn><mn>0</mn></msup></mrow></math></td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid"><tt class="verbatim">kitten</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>1</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>.</mi><mn>2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>8</mn><mi>.</mi><mn>1</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>8</mn><mi>.</mi><mn>5</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></mrow></math></td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid"><tt class="verbatim">lucy</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>7</mn><mo>×</mo><msup><mn>10</mn><mn>0</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>8</mn><mo>×</mo><msup><mn>10</mn><mn>0</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>9</mn><mi>.</mi><mn>6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>1</mn><mi>.</mi><mn>0</mn><mo>×</mo><msup><mn>10</mn><mn>0</mn></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mi>.</mi><mn>8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>3</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math></td>
+          </tr><tr>
+            <td style="text-align: center; border-left: 0px solid; border-right: 1px solid; border-bottom: 0px solid"><tt class="verbatim">teapot</tt></td>
+            <td style="text-align: center; border-right: 1px solid; border-left: 1px solid; border-bottom: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>6</mn><mi>.</mi><mn>5</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid; border-bottom: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>4</mn><mi>.</mi><mn>0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid; border-bottom: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>2</mn><mi>.</mi><mn>8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 1px solid; border-bottom: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>9</mn><mi>.</mi><mn>0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>5</mn></mrow></msup></mrow></math></td>
+            <td style="text-align: center; border-left: 1px solid; border-right: 0px solid; border-bottom: 0px solid"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mn>5</mn><mi>.</mi><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>5</mn></mrow></msup></mrow></math></td>
+          </tr></tbody>
+        </table>
+      </p>
+    </div>
+    <h4 id="auto-10">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />C++ source code
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Modified QSlim source code that compiles
+        with modern C++
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Example models
+      </p>
+    </div>
+    <h2 id="auto-11">CS3308-archive<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Train small neural networks with numpy only. You can pile up
+        predefined blocks (convolution, fully-connected, etc.) to build your
+        own net. A LeNet trained this way achieved 75% accuracy.
+      </p>
+    </div>
+    <h4 id="auto-12">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Python source code
+      </p>
+    </div>
+    <h2 id="auto-13">Turing<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        A DSL for Turing machines. Each rule is in the form 
+      </p>
+    </div>
+    <div style="margin-left: 70.2907px">
+      <p>
+        <class style="font-style: normal"><tt class="verbatim">((</tt><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mtext>state</mtext></mrow></math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mtext>symbol</mtext></mrow><mn>1</mn></msub></math>
+        <span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span
+        style="margin-left: 0.16665em"></span> <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mtext>symbol</mtext></mrow><mi>n</mi></msub></math><tt
+        class="verbatim">) (</tt><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow><mtext>state</mtext></mrow><mi>'</mi></msup></math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mtext>symbol</mtext></mrow><mn>2</mn><mi>'</mi></msubsup></math>
+        <span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span
+        style="margin-left: 0.16665em"></span> <math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mtext>symbol</mtext></mrow><mi>n</mi><mi>'</mi></msubsup></math>
+        <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mtext>move</mtext></mrow><mn>1</mn></msub></math>
+        <span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span style="margin-left: 0.16665em"></span>.<span
+        style="margin-left: 0.16665em"></span> <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mtext>move</mtext></mrow><mi>n</mi></msub></math><tt
+        class="verbatim">))</tt></class>
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        if there are <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math> tapes and the first tape
+        is read-only. Store and index transition rules in a trie.
+      </p>
+    </div>
+    <h4 id="auto-14">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Scheme source code and a multiplier
+        example
+      </p>
+    </div>
+    <h2 id="auto-15">FingerTree<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Ephermeral <a href="https://doi.org/10.1017/S0956796805005769">finger tree</a>. I expected it to be slow, but it
+        at least passed our benchmark for double-ended queues. The extremely
+        long function enumerating hundreds of cases is generated by another
+        program, as suggested in the paper.
+      </p>
+    </div>
+    <h4 id="auto-16">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />C++ source code
+      </p>
+    </div>
+    <h2 id="auto-17">RBT<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <a href="https://doi.org/10.1017/S0956796814000227">Persistent red-black tree</a> and test generation.
+      </p>
+    </div>
+    <h4 id="auto-18">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />OCaml source code
+      </p>
+    </div>
+    <h2 id="auto-19">WBT<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Persistent weight balanced tree with <a href="https://doi.org/10.1017/S0956796811000104">proven parameters</a>
+        and reference counting <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>+</mo></math> reusing (a.k.a
+        manual <a href="https://doi.org/10.1145/3453483.3454032">Perseus</a>). I wrote it to benchmark our balanced
+        binary tree course project, but it turned out that this implementation
+        beats all our students' in both speed and memory usage.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <table style="display: inline-table; vertical-align: middle">
+          <tbody><tr>
+            <td style="text-align: center; border-top: 0px solid; border-bottom: 1px solid; border-left: 0px solid"></td>
+            <td style="text-align: center; border-top: 0px solid; border-bottom: 1px solid">time (s)</td>
+            <td style="text-align: center; border-top: 0px solid; border-bottom: 1px solid; border-right: 0px solid">memory (total, MiB)</td>
+          </tr><tr>
+            <td style="text-align: center; border-top: 1px solid">wbt</td>
+            <td style="text-align: center; border-top: 1px solid">8.67</td>
+            <td style="text-align: center; border-top: 1px solid">169.3</td>
+          </tr><tr>
+            <td style="text-align: center">persistent treap</td>
+            <td style="text-align: center">11.48</td>
+            <td style="text-align: center">462.4</td>
+          </tr></tbody>
+        </table>
+      </p>
+    </div>
+    <h4 id="auto-20">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />C++ source code
+      </p>
+    </div>
+    <h2 id="auto-21">Schemer<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Code skeleton of a Scheme interpreter (course assignment). It uses
+        smart pointers but there is still memory leak, due to cycles in
+        closures created by <tt class="verbatim">letrec</tt>. We should somehow group
+        <tt class="verbatim">letrec</tt> bindings together and use weak pointers
+        cleverly to eliminate such leakage.
+      </p>
+    </div>
+    <h4 id="auto-22">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />C++ source code
+      </p>
+    </div>
+    <h2 id="auto-23">2048<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <a href="https://www.2048.org/">2048</a> in the terminal, with adjustable board size. This is
+        the first &ldquo;serious&rdquo; program I have ever written, in my
+        middle school.
+      </p>
+    </div>
+    <h4 id="auto-24">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />C source code. Runs on Windows; other
+        platforms need minor modification
+      </p>
+    </div>
+    <h2 id="auto-25">QCaml<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Embedded DSL for quantum circuit evaluation and rendering, <a href="https://okmij.org/ftp/tagless-final/index.html">tagless-finally</a>.
+        There is also an abstraction layer on top of the core, where users
+        operate individual qbits directly.
+      </p>
+    </div>
+    <h4 id="auto-26">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />OCaml source code
+      </p>
+    </div>
+    <h2 id="auto-27">RNG<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        True random number generator from sound records.
+      </p>
+    </div>
+    <h4 id="auto-28">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />Python source code
+      </p>
+    </div>
+    <h2 id="auto-29">Single-MIPS<span style="margin-left: 1em"></span></h2>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Single-cycle MIPS simulator. Just to have a taste of <a href="https://github.com/janestreet/hardcaml">Hardcaml</a>.
+      </p>
+    </div>
+    <h4 id="auto-30">Files<span style="margin-left: 1em"></span></h4>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <font color="#800000">[]</font><br />OCaml source code
+      </p>
+    </div>
+    <p>
+      
+    </p>
+  </body>
+</html>
