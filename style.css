@@ -1,0 +1,22 @@
+h2 {
+    margin-top: 2em;
+}
+
+h4 {
+    margin-top: -0.5em;
+    margin-bottom: -1em;
+}
+
+li p {
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+@font-face {
+    font-family: Unifont;
+    src:url("font/unifont-16.0.01.otf");
+}
+
+.verbatim {
+    font-family: Unifont;
+}

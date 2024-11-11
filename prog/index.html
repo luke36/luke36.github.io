@@ -28,6 +28,7 @@
       { float: right; position: relative; top: -1em; } .no-breaks {
       white-space: nowrap; } math { font-family: cmr, times, verdana } 
     </style>
+    <link href="../style.css" type="text/css" rel="stylesheet"></link>
   </head>
   <body>
     <table class="title-block" style="margin-bottom: 2em">
@@ -50,16 +51,121 @@
         developer using a pattern-based DSL) to solve separation-logic
         entailments. Finally, it exports remaining (not solved by rewriting
         and SMT solver) verification conditions to Coq. The toolchain has been
-        used in real-world operating system verification and eBPF verification
-        (NSDI submission).
+        used in education, real-world operating system verification, and eBPF
+        verification (NSDI submission).
       </p>
     </div>
     <div style="margin-left: 35.145870328812px">
       <p>
-        I am one of the core contributors of VST-IDE. I coded the C frontend,
-        the assertion-language elaborator, the type system of the assertion
-        language, and a compiler targeting eBPF bytecode. The compiler also
-        compiles C annotations to eBPF ones.
+        I am one of the core contributors of VST-IDE (400+ commits). I coded
+        the C frontend, the assertion-language elaborator, the type system of
+        the assertion language, some features in the symbolic executor, and a
+        compiler targeting eBPF bytecode. The compiler also compiles C
+        annotations to eBPF ones.
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        Compared to <a href="https://www.verifast.com/">VeriFast</a>, our tool has the following
+        advantages:
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <ul>
+        <li>
+          <p>
+            Accepts a slightly larger subset of C.
+          </p>
+        </li>
+        <li>
+          <p>
+            Interactivity in mind from the start.
+          </p>
+        </li>
+        <li>
+          <p>
+            More legible annotations while keeping a clearer separation
+            between the program world and the logic world.
+          </p>
+        </li>
+        <li>
+          <p>
+            Separate &ldquo;global&rdquo; logic variables and existential
+            variables so that, for example, the loop invariant check is more
+            straightforward.
+          </p>
+        </li>
+        <li>
+          <p>
+            Finer control over branched execution: you can name them, operate
+            on them differently, join them, and so on.
+          </p>
+        </li>
+        <li>
+          <p>
+            &ldquo;Reuse&rdquo; the logic framework of Coq: no need to build a
+            logic in itself (inductive datatypes, recursive predicates, etc.);
+            export unsolved VC to Coq.
+          </p>
+        </li>
+        <li>
+          <p>
+            More flexible form of the <tt class="verbatim">old_</tt> prefix.
+          </p>
+        </li>
+        <li>
+          <p>
+            Future mechanized soundness guarantees.
+          </p>
+        </li>
+        <li>
+          <p>
+            The underlying logic supports concurrency.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        We also have the following disadvantages:
+      </p>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <ul>
+        <li>
+          <p>
+            Far less stable, far less user interface.
+          </p>
+        </li>
+        <li>
+          <p>
+            Less automation built-in; you have to specify automation rules
+            yourself.
+          </p>
+        </li>
+        <li>
+          <p>
+            Poorer support for function pointers.
+          </p>
+        </li>
+        <li>
+          <p>
+            Only one target platform.
+          </p>
+        </li>
+        <li>
+          <p>
+            No fractional permissions, precise predicates, or multithreading
+            support built-in. We can (and do) alternatively wrap them in a
+            plain-old separation logic predicate in Coq first.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-left: 35.145870328812px">
+      <p>
+        <img class="image" src="pic/Screenshot_20241111_233945.png" width="60%"></img> Screenshot of an experimental Emacs
+        interface.
       </p>
     </div>
     <h4 id="auto-2">Files<span style="margin-left: 1em"></span></h4>
@@ -69,7 +175,7 @@
         language in assertions. It's just a random try.
       </p>
     </div>
-    <h2 id="auto-3">Scope<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-3">Scope inference<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         This is the outcome of my independent research in Peking University.
@@ -121,7 +227,7 @@
     <h4 id="auto-4">Files<span style="margin-left: 1em"></span></h4>
     <div style="margin-left: 35.145870328812px">
       <p>
-        <a href="file/scope.tar.gz">scope.tar.gz</a> [61K]<br />Source code and a few examples.
+        <a href="file/scope.tar.gz">scope.tar.gz</a> [64K]<br />Source code and a few examples.
         Includes Minisat source.
       </p>
     </div>
@@ -135,7 +241,7 @@
         <a href="file/concl.pdf">concl.pdf</a> [454K]<br />Full report
       </p>
     </div>
-    <h2 id="auto-5">CS1959-compiler<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-5">CS1959 compiler<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         Native compiler of a subset of Scheme. Based on course P523 in Indiana
@@ -242,7 +348,7 @@
         missing document
       </p>
     </div>
-    <h2 id="auto-7">LTL<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-7">LTL model checking<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         Model checking labeled transition systems with linear temporal logic
@@ -263,7 +369,7 @@ Unsatisfied. Counterexample:
         <a href="file/LTL.tar.gz">LTL.tar.gz</a> [13K]<br />C++ source code and a few examples
       </p>
     </div>
-    <h2 id="auto-9">SIMP<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-9">Mesh simplification<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         <a href="https://doi.org/10.1145/258734.258849">QEM</a> mesh simplification. Uses KT tree to search vertices
@@ -368,7 +474,7 @@ Unsatisfied. Counterexample:
         <a href="file/model.tar.gz">model.tar.gz</a> [4.5M]<br />Example models
       </p>
     </div>
-    <h2 id="auto-11">CS3308-archive<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-11">CS3308 framework<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         Train small neural networks with NumPy only. You can pile up
@@ -388,7 +494,7 @@ Unsatisfied. Counterexample:
         <a href="file/repo.pdf">repo.pdf</a> [1.7M]<br />Report, including visualization
       </p>
     </div>
-    <h2 id="auto-13">Turing<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-13">Turing machine<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         A DSL for Turing machines. Each rule is in the form 
@@ -423,7 +529,7 @@ Unsatisfied. Counterexample:
         example
       </p>
     </div>
-    <h2 id="auto-15">FingerTree<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-15">Finger tree<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         Ephemeral <a href="https://doi.org/10.1017/S0956796805005769">finger tree</a>. I expected it to be slow, but it
@@ -438,7 +544,7 @@ Unsatisfied. Counterexample:
         program, as suggested in the paper.
       </p>
     </div>
-    <h2 id="auto-17">RBT<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-17">Red-black tree<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         <a href="https://doi.org/10.1017/S0956796814000227">Persistent red-black tree</a> and test generation.
@@ -450,7 +556,7 @@ Unsatisfied. Counterexample:
         <a href="file/rbt.ml">rbt.ml</a> [12K]<br />OCaml source code
       </p>
     </div>
-    <h2 id="auto-19">WBT<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-19">Weight-balanced tree<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         Persistent weight balanced tree with <a href="https://doi.org/10.1017/S0956796811000104">proven parameters</a>
@@ -486,7 +592,7 @@ Unsatisfied. Counterexample:
         memory pool can be safely removed
       </p>
     </div>
-    <h2 id="auto-21">Schemer<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-21">Scheme interpreter<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         Code skeleton of a Scheme interpreter (course assignment). It uses
@@ -532,7 +638,7 @@ Unsatisfied. Counterexample:
         <a href="file/QCaml.tar.gz">QCaml.tar.gz</a> [5K]<br />OCaml source code
       </p>
     </div>
-    <h2 id="auto-27">RNG<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-27">Random number generator<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         True random number generator from sound records.
@@ -550,7 +656,7 @@ Unsatisfied. Counterexample:
         <a href="file/finalAnalysisReport.txt">finalAnalysisReport.txt</a> [17K]<br />NIST test report
       </p>
     </div>
-    <h2 id="auto-29">Single-MIPS<span style="margin-left: 1em"></span></h2>
+    <h2 id="auto-29">MIPS simulator<span style="margin-left: 1em"></span></h2>
     <div style="margin-left: 35.145870328812px">
       <p>
         Single-cycle MIPS simulator. Just to have a taste of <a href="https://github.com/janestreet/hardcaml">Hardcaml</a>.
